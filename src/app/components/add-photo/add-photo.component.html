@@ -1,0 +1,63 @@
+<svg
+  (click)="openModal()"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  class="icon_plus"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+  />
+</svg>
+
+<button (click)="openModal()" class="button add_button">Add a photo</button>
+
+<div class="modal_container" [class.modal_out]="isOpen">
+  <div class="modal_background" [class.show_modal_background]="isOpen">
+    <div class="modal">
+      <div class="modal_header">
+        <h2 class="modal_title">Add a new photo</h2>
+      </div>
+      <div class="modal_body">
+        <form class="form">
+          <div class="form_group">
+            <span>Label</span>
+            <input class="form_control" type="text" placeholder="Name img..." />
+          </div>
+          <div class="form_group">
+            <span>Photo</span>
+            <div class="button custom_input_file">
+              <input type="file" class="input-file" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="icon_up"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
+                />
+              </svg>
+              Upload file...
+            </div>
+          </div>
+
+          <div class="form_bottons">
+            <button (click)="closeModal()" class="button button_secondary">
+              Cancel
+            </button>
+            <button class="button button_primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

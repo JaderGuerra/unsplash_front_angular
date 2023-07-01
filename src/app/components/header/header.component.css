@@ -1,0 +1,25 @@
+.header {
+  background-color: var(--primary);
+  margin: -1em;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_app {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  width: 100%;
+}
+
+@media only screen and (min-width: 767px) {
+  .header {
+    background-color: #ffffff;
+  }
+  .header_app {
+    color: #333333;
+    width: 500px;
+  }
+}
