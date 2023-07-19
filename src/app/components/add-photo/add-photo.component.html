@@ -23,15 +23,33 @@
         <h2 class="modal_title">Add a new photo</h2>
       </div>
       <div class="modal_body">
-        <form class="form">
+        <form
+          class="form"
+          autocomplete="off"
+          (ngSubmit)="uploadImage()"
+          [formGroup]="form"
+        >
           <div class="form_group">
             <span>Label</span>
-            <input class="form_control" type="text" placeholder="Name img..." />
+            <input
+              class="form_control"
+              formControlName="label"
+              type="text"
+              placeholder="Name img..."
+              name="label"
+            />
           </div>
           <div class="form_group">
             <span>Photo</span>
             <div class="button custom_input_file">
-              <input type="file" class="input-file" />
+              <input
+                name="image_path"
+                type="file"
+                formControlName="image_path"
+                (change)="captureFile($event)"
+                class="input-file"
+                accept=".jpg, .jpeg, .png"
+              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -49,12 +67,21 @@
               Upload file...
             </div>
           </div>
+          <div *ngIf="image" class="form_group-img">
+            <img [src]="image" class="form_group_img" />
+          </div>
 
           <div class="form_bottons">
-            <button (click)="closeModal()" class="button button_secondary">
+            <button
+              type="button"
+              (click)="closeModal()"
+              class="button button_secondary"
+            >
               Cancel
             </button>
-            <button class="button button_primary">Submit</button>
+            <button [disabled]="form.invalid" class="button button_primary">
+              Submit
+            </button>
           </div>
         </form>
       </div>

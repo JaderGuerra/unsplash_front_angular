@@ -50,6 +50,7 @@
   width: min(90vw, 600px);
   margin: 0 auto;
   border-radius: var(--border-radius);
+  height: auto;
 }
 
 .modal_title {
@@ -100,6 +101,10 @@
   margin-bottom: 1em;
 }
 
+.form_group-img {
+  margin-bottom: 1em;
+}
+
 .form_group span {
   text-align: left;
   font-weight: 400;
@@ -118,10 +123,20 @@
   color: var(--textGray);
 }
 
+.form_group_img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
 .form_bottons {
   display: flex;
   justify-content: flex-end;
   grid-gap: 1em;
+}
+button:disabled {
+  cursor: not-allowed;
+  background-color: #446f56;
 }
 
 .custom_input_file {
