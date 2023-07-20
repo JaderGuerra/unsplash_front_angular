@@ -1,0 +1,96 @@
+:host {
+  margin-top: 25px;
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px; */
+  display: block;
+  overflow: hidden;
+  column-gap: 45px;
+}
+
+picture {
+  display: grid;
+  margin-bottom: 10px;
+  position: relative;
+  place-content: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+}
+
+picture img {
+  width: 100%;
+  display: block;
+  max-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+picture div {
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: end left;
+  padding: 30px 20px;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+picture div p {
+  color: white;
+  font-weight: bold;
+  line-height: 21px;
+  font-size: 18px;
+  text-transform: capitalize;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+picture div button {
+  --color: orange;
+  background: none;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 38px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+  padding: 4px 8px;
+  position: absolute;
+  top: 30px;
+  right: 20px;
+  cursor: pointer;
+}
+
+picture:hover div {
+  opacity: 1;
+}
+
+picture:hover img {
+  filter: blur(3px);
+}
+
+@media only screen and (min-width: 640px) {
+  :host {
+    margin-top: 25px;
+    columns: 2;
+    column-gap: 10px;
+  }
+}
+
+@media only screen and (min-width: 930px) {
+  :host {
+    margin-top: 75px;
+    columns: 3;
+    column-gap: 45px;
+  }
+  picture {
+    margin-bottom: 45px;
+  }
+}

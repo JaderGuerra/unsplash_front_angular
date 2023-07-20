@@ -30,6 +30,10 @@ export class ApiService {
     const fd = new FormData();
     fd.append('image_path', file.image_path!);
     fd.append('label', file.label);
-    return this._http.post('http://127.0.0.1:8000/api/uploadfile', fd);
+    return this._http.post('http://192.168.1.57:8000/api/uploadfile', fd);
+  }
+
+  getAllImages(): Observable<NewFile[]> {
+    return this._http.get<NewFile[]>('http://192.168.1.57:8000/api/getImages');
   }
 }

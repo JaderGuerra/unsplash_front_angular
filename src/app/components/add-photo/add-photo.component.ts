@@ -19,7 +19,7 @@ export class AddPhotoComponent {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   form!: FormGroup;
-  isOpen: boolean = true;
+  isOpen: boolean = false;
   image!: string;
   selectedFile: File | null = null;
 
