@@ -22,10 +22,7 @@ export class ApiService {
   uploadFile(file: NewFile) {
     let headers = new HttpHeaders();
     headers = headers
-      .set('Content-Type', 'multipart/form-data')
-      .set('Accept', '*/*')
-      .set('Connection', 'keep-alive')
-      .set('Accept-Encoding', 'gzip, deflate, br');
+      .set('Content-Type', 'multipart/form-data');
 
     const fd = new FormData();
     fd.append('image_path', file.image_path!);

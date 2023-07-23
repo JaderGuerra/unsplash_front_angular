@@ -1,10 +1,11 @@
-<picture
-  *ngFor="let image of images"
-  [ngStyle]="{ backgroundImage: 'url(' + image.image_path_thumbnail + ')' }"
->
-  <img [src]="image.image_path" [alt]="image.label" (load)="loaded($event)" />
-  <div>
-    <button>Eliminar</button>
-    <p>{{ image.label }}</p>
-  </div>
-</picture>
+<article *ngFor="let image of images" style="--background-image-url: url('{{ image.image_path }}')">
+  <picture
+    [ngStyle]="{ backgroundImage: 'url(' + image.image_path_thumbnail + ')'}"
+  >
+    <img [src]="image.image_path" [alt]="image.label" (load)="loaded($event)" />
+    <div>
+      <button>Eliminar</button>
+      <p>{{ image.label }}</p>
+    </div>
+  </picture>
+</article>

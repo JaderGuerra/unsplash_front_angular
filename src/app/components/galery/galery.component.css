@@ -4,13 +4,31 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 45px; */
   display: block;
-  overflow: hidden;
   column-gap: 45px;
+}
+
+article {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+article::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 16px;
+  background-position: center;
+  background: var(--background-image-url);
+  background-size: cover;
+  opacity: 0.7;
+  filter: blur(5px);
+  transform: translateX(3px) translateY(3px);
 }
 
 picture {
   display: grid;
-  margin-bottom: 10px;
   position: relative;
   place-content: center;
   border-radius: 16px;
@@ -36,11 +54,26 @@ picture div {
   );
   position: absolute;
   inset: 0;
-  display: grid;
-  place-content: end left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 30px 20px;
   opacity: 0;
   transition: opacity 0.2s linear;
+}
+
+picture div button {
+  --color: orange;
+  background: none;
+  color: var(--color);
+  border: 2px solid var(--color);
+  border-radius: 38px;
+  font-size: 14px;
+  font-weight: 500;
+/*   line-height: 12px; */
+  padding: 4px 12px;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 picture div p {
@@ -50,22 +83,7 @@ picture div p {
   font-size: 18px;
   text-transform: capitalize;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-}
-
-picture div button {
-  --color: orange;
-  background: none;
-  color: var(--color);
-  border: 2px solid var(--color);
-  border-radius: 38px;
-  font-size: 10px;
-  font-weight: 500;
-  line-height: 12px;
-  padding: 4px 8px;
-  position: absolute;
-  top: 30px;
-  right: 20px;
-  cursor: pointer;
+  align-self: flex-start;
 }
 
 picture:hover div {
@@ -90,7 +108,11 @@ picture:hover img {
     columns: 3;
     column-gap: 45px;
   }
-  picture {
+  article {
     margin-bottom: 45px;
+  }
+  article::before {
+    transform: translateX(10px) translateY(10px);
+    filter: blur(10px);
   }
 }
