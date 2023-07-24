@@ -32,14 +32,16 @@ export class AddPhotoComponent {
   createForm(): FormGroup {
     return this._fb.group({
       label: ['', [Validators.required, Validators.minLength(3)]],
-      image_path: ['', Validators.required],
+      image_path: [''],
+      url: ['']
     });
   }
 
   uploadImage() {
     const file = {
       label: this.form.value.label,
-      image_path: this.selectedFile,
+      image_path: this.selectedFile ?? '',
+      url: this.form.value.url
     };
 
     this._api.uploadFile(file).subscribe((response) => console.log(response));

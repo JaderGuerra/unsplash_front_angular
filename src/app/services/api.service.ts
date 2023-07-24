@@ -27,7 +27,7 @@ export class ApiService {
     const fd = new FormData();
     fd.append('image_path', file.image_path!);
     fd.append('label', file.label);
-    return this._http.post('http://192.168.1.57:8000/api/uploadfile', fd);
+    fd.append('url', file.url!);
   }
 
   getAllImages(): Observable<NewFile[]> {
