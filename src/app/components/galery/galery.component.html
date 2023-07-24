@@ -1,4 +1,4 @@
-<article *ngFor="let image of images" style="--background-image-url: url('{{ image.image_path }}')">
+<article *ngFor="let image of images" style="--background-image-url: url('{{ image.image_path }}')" (click)="selectImage(image)">
   <picture
     [ngStyle]="{ backgroundImage: 'url(' + image.image_path_thumbnail + ')'}"
   >
@@ -9,3 +9,4 @@
     </div>
   </picture>
 </article>
+<image-preview *ngIf="showPreview" [image]="selectedImage" (close)="showPreview = false"></image-preview>

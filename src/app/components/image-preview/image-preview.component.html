@@ -1,0 +1,9 @@
+<section>
+  <header>
+    <h2>{{ image.label }}</h2>
+    <button class="close" (click)="close.emit()">&times;</button>
+  </header>
+  <picture>
+    <img [src]="image.image_path" [alt]="image.label">
+  </picture>
+</section>

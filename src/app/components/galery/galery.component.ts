@@ -4,16 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from 'src/app/services/api.service';
 import { NewFile } from 'src/app/models/file.models';
 import { Subscription } from 'rxjs';
+import { ImagePreviewComponent } from '../image-preview/image-preview.component';
 
 @Component({
   selector: 'app-galery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImagePreviewComponent],
   templateUrl: './galery.component.html',
   styleUrls: ['./galery.component.css'],
 })
 export class GaleryComponent implements OnInit, OnDestroy {
+
+  public showPreview = false
   public images: NewFile[] = [];
+  public selectedImage!: NewFile
   private imageSubscription!: Subscription;
 
   constructor(private _apiService: ApiService) {}
@@ -30,5 +34,10 @@ export class GaleryComponent implements OnInit, OnDestroy {
 
   loaded(event: Event) {
     (event.target as HTMLImageElement).style.opacity = '1';
+  }
+
+  selectImage(image: NewFile) {
+    this.selectedImage = image
+    this.showPreview = true
   }
 }
