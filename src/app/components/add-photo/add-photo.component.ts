@@ -33,7 +33,7 @@ export class AddPhotoComponent {
     return this._fb.group({
       label: ['', [Validators.required, Validators.minLength(3)]],
       image_path: [''],
-      url: ['']
+      url: [''],
     });
   }
 
@@ -41,10 +41,10 @@ export class AddPhotoComponent {
     const file = {
       label: this.form.value.label,
       image_path: this.selectedFile ?? '',
-      url: this.form.value.url
+      url: this.form.value.url,
     };
 
-    this._api.uploadFile(file).subscribe((response) => console.log(response));
+    this._api.uploadFile(file).subscribe((response) => this.clearForm());
   }
 
   captureFile(event: Event): void {
@@ -63,5 +63,11 @@ export class AddPhotoComponent {
 
   closeModal() {
     this.isOpen = false;
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.form.reset();
+    this.image = '';
   }
 }
