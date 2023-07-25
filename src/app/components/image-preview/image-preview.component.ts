@@ -14,14 +14,14 @@ export class ImagePreviewComponent implements OnInit, OnDestroy {
   @Output() close = new EventEmitter();
   @Input() image!: NewFile;
 
-  closePreview(event: KeyboardEvent) {
-    if(event.key === 'Escape') this.close.emit()
+  closePreview = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') this.close.emit()
   }
 
   ngOnDestroy(): void {
-    document.removeEventListener('keyup', this.closePreview.bind(this))
+    document.removeEventListener('keyup', this.closePreview)
   }
   ngOnInit(): void {
-    document.addEventListener('keyup', this.closePreview.bind(this))
+    document.addEventListener('keyup', this.closePreview)
   }
 }
