@@ -54,6 +54,13 @@ export class AddPhotoComponent {
       this.selectedFile = fileInput.files[0];
       const objectURL = URL.createObjectURL(fileInput.files[0]);
       this.image = objectURL;
+      this.form.controls['url'].disable();
+    }
+  }
+
+  captureUrl() {
+    if (!this.form.value.image_path) {
+      this.image = this.form.value.url;
     }
   }
 
@@ -69,5 +76,6 @@ export class AddPhotoComponent {
   clearForm() {
     this.form.reset();
     this.image = '';
+    this.form.controls['url'].enable();
   }
 }
