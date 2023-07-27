@@ -13,7 +13,7 @@ article {
 }
 
 article::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   inset: 0;
@@ -70,7 +70,7 @@ picture div button {
   border-radius: 38px;
   font-size: 14px;
   font-weight: 500;
-/*   line-height: 12px; */
+  /*   line-height: 12px; */
   padding: 4px 12px;
   align-self: flex-end;
   cursor: pointer;
@@ -84,6 +84,7 @@ picture div p {
   text-transform: capitalize;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
   align-self: flex-start;
+  cursor: pointer;
 }
 
 picture:hover div {

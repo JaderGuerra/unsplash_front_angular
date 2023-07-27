@@ -34,4 +34,8 @@ export class ApiService {
   getAllImages(): Observable<NewFile[]> {
     return this._http.get<NewFile[]>(`${this._url}api/getImages`);
   }
+
+  deleteFile(id: string) {
+    return this._http.delete(`${this._url}api/delete/${id}`);
+  }
 }

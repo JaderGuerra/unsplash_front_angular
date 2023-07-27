@@ -14,10 +14,9 @@ import { ImagePreviewComponent } from '../image-preview/image-preview.component'
   styleUrls: ['./galery.component.css'],
 })
 export class GaleryComponent implements OnInit, OnDestroy {
-
-  public showPreview = false
+  public showPreview = false;
   public images: NewFile[] = [];
-  public selectedImage!: NewFile
+  public selectedImage!: NewFile;
   private imageSubscription!: Subscription;
 
   constructor(private _apiService: ApiService) {}
@@ -27,9 +26,7 @@ export class GaleryComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.imageSubscription = this._apiService
-      .getAllImages()
-      .subscribe((response) => (this.images = response));
+    this.showAllImages();
   }
 
   loaded(event: Event) {
@@ -37,7 +34,21 @@ export class GaleryComponent implements OnInit, OnDestroy {
   }
 
   selectImage(image: NewFile) {
-    this.selectedImage = image
-    this.showPreview = true
+    this.selectedImage = image;
+    this.showPreview = true;
+  }
+
+  showAllImages() {
+    this.imageSubscription = this._apiService
+      .getAllImages()
+      .subscribe((response) => (this.images = response));
+  }
+
+  deletedFile(id: string) {
+    this._apiService.deleteFile(id).subscribe((response) => {
+      this.imageSubscription = this._apiService
+        .getAllImages()
+        .subscribe((response) => (this.images = response));
+    });
   }
 }
