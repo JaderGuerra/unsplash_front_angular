@@ -42,7 +42,7 @@ picture img {
   display: block;
   max-width: 100%;
   opacity: 0;
-  transition: opacity 0.5s linear;
+  transition: opacity .5s ease-in;
 }
 
 picture div {
