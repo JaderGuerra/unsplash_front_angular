@@ -44,7 +44,8 @@ export class GaleryComponent implements OnInit, OnDestroy {
       .subscribe((response) => (this.images = response));
   }
 
-  deletedFile(id: string) {
+  deletedFile(id: string, event: MouseEvent) {
+    event.stopPropagation()
     this._apiService.deleteFile(id).subscribe((response) => {
       this.imageSubscription = this._apiService
         .getAllImages()
