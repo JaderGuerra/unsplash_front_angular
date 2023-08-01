@@ -80,6 +80,7 @@
           </div>
           <div *ngIf="image" class="form_group-img">
             <img [src]="image" class="form_group_img" />
+            <button class="removeImageButton" type="button" (click)="removeSelectedImage()" data-text="QUITAR">Quitar</button>
           </div>
 
           <div class="form_bottons">

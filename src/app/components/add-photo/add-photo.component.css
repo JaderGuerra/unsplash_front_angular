@@ -44,7 +44,7 @@
 }
 
 .modal {
-  background-color: #ffffff;
+  background-color: #e8e8e8;
   transform: scale(0);
   animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   padding: 1em;
@@ -166,6 +166,56 @@ button:disabled {
 
 .icon_up {
   width: 30px;
+}
+
+.removeImageButton {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  padding: .6em 1.5em;
+  margin-top: 10px;
+  color: transparent;
+  background: #e0e0e0;
+  box-shadow: 6px 6px 12px #c5c5c5,
+             -6px -6px 12px #ffffff;
+  position: relative;
+  letter-spacing: 1.2px;
+  overflow: hidden;
+}
+
+.removeImageButton::before,
+.removeImageButton::after {
+  content: "";
+  display: flex;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeImageButton::before {
+  background-color: rgb(182, 0, 0);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in;
+  transition-delay: 0.1s;
+  transform-origin: bottom left;
+}
+
+.removeImageButton::after {
+  content: attr(data-text);
+  color: rgb(127, 29, 29);
+  transition: color 0.2s ease-in;
+  transition-delay: 0.1s;
+}
+
+.removeImageButton:hover::after {
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.801);
+}
+.removeImageButton:hover::before {
+  transform: scaleX(1);
 }
 
 @media only screen and (min-width: 767px) {

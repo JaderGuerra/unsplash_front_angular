@@ -55,6 +55,7 @@ export class AddPhotoComponent {
       const objectURL = URL.createObjectURL(fileInput.files[0]);
       this.image = objectURL;
       this.form.controls['url'].disable();
+      this.form.controls['url'].reset()
     }
   }
 
@@ -62,6 +63,13 @@ export class AddPhotoComponent {
     if (!this.form.value.image_path) {
       this.image = this.form.value.url;
     }
+  }
+
+  removeSelectedImage() {
+    this.selectedFile = null
+    this.form.controls['url'].enable()
+    this.form.controls['image_path'].reset()
+    this.image = ''
   }
 
   openModal() {
